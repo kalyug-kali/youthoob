@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #282828;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Video Player</h1>
+    </header>
+    <main>
+        <video controls autoplay>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the video URL from the query parameter
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const videoUrl = urlParams.get('video');
+
+            // Set the video source
+            const videoElement = document.querySelector('video');
+            videoElement.src = videoUrl;
+        });
+    </script>
+</body>
+</html>
